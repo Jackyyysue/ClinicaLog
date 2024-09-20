@@ -331,28 +331,49 @@
                         >
                           <thead>
                             <tr>
-                              <th>ID</th>
-                              <th>Category</th>
                               <th>Name</th>
-                              <th>Quantity</th>
-                              <th>Dosage Strength</th>
-                              <th>Date Added</th>
-                              <th>Expiration Date</th>
+                              <th>Patient ID</th>
+                              <th>Phone Number</th>
+                              <th>Last Visited Date</th>
+                              <th>Clinic Staff</th>
+                              <th>Reason</th>
                               <th style="width: 10%">Action</th>
                             </tr>
                           </thead>
                           <tfoot>
                             <tr>
-                              <th>ID</th>
-                              <th>Category</th>
                               <th>Name</th>
-                              <th>Quantity</th>
-                              <th>Dosage Strength</th>
-                              <th>Date Added</th>
-                              <th>Expiration Date</th>
+                              <th>Patient ID</th>
+                              <th>Phone Number</th>
+                              <th>Last Visited Date</th>
+                              <th>Clinic Staff</th>
+                              <th>Reason</th>
                               <th>Action</th>
                             </tr>
                           </tfoot>
+                          <tbody>
+                          <tr>
+                            <td>Jackilyn M. Furog</td>
+                            <td>2022-00473</td>
+                            <td>09756066512</td>
+                            <td>06/28/2024</td>
+                            <td>Nurse Tweet</td>
+                            <td>Stomach Ache  </td>
+                            <td>
+                              <div class="form-button-action">
+                                <button
+                                  id="editButton"
+                                  type="button"
+                                  data-bs-toggle="tooltip"
+                                  title=""
+                                  class="btn btn-link btn-primary btn-lg"
+                                >
+                                  <i class="fa fa-edit"></i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
                         </table>
                       </div>
                     </div>
