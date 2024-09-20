@@ -74,7 +74,7 @@ $user_id = $_SESSION['user_id'];
             <!-- Main Content -->
             <div class="container" id="content">
                 <h1>
-                Appointments
+                Appointmentsz
                 </h1>
             </div>
         </div>
