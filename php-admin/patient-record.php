@@ -362,13 +362,13 @@
                             <td>
                               <div class="form-button-action">
                                 <button
-                                  id="editButton"
+                                  id="viewButton"
                                   type="button"
                                   data-bs-toggle="tooltip"
                                   title=""
                                   class="btn btn-link btn-primary btn-lg"
                                 >
-                                  <i class="fa fa-edit"></i>
+                                  <i class="fa fa-eye"></i>
                                 </button>
                               </div>
                             </td>
