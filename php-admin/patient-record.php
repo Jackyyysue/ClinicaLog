@@ -358,7 +358,7 @@
                             <td>09756066512</td>
                             <td>06/28/2024</td>
                             <td>Nurse Tweet</td>
-                            <td>Stomach Ache  </td>
+                            <td>Stomach Ache</td>
                             <td>
                               <div class="form-button-action">
                                 <button
