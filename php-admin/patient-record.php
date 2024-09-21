@@ -65,7 +65,7 @@
                         <button
                           class="btn btn-primary btn-round ms-auto"
                           data-bs-toggle="modal"
-                          data-bs-target="#addMedModal"
+                          data-bs-target="#addPatientModal"
                           id="patientButton"
                         >
                           <i class="fa fa-plus"></i>
@@ -325,6 +325,50 @@
                         </div>
                       </div>
 
+                      <div
+                        class="modal fade"
+                        id="addPatientModal"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header border-0">
+                              <h5 class="modal-title">
+                                <span class="fw-mediumbold">Add</span>
+                                <span class="fw-light"> Patient </span>
+                              </h5>
+                              <button
+                                type="button"
+                                class="close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                                id="edit-exit"
+                              >
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                                <!-- Button for Student Patient -->
+                                <a href="studentPatientPage.php">
+                                  <button type="button" class="btn btn-primary">
+                                    Student Patient
+                                  </button>
+                                </a>
+                                <!-- Button for Staff Patient -->
+                                <a href="staffPatientPage.php">
+                                  <button type="button" class="btn btn-secondary">
+                                    Staff Patient
+                                  </button>
+                                </a>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div class="table-responsive">
                         <table
                           id="add-med"
@@ -386,8 +430,6 @@
         </div>
       </div>
 
-    
-    
 
     <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>

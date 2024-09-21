@@ -7507,15 +7507,6 @@ label.error {
    font-size: .8em
 }
 
-#viewButton .fa-eye{
-   font-size: 22px;
-   color: #DB6079;
-}
-
-#patientButton{
-   background-color: #DB6079 !important;
-   border-color: #DB6079 !important;
-}
 .timeline-badge.black {
    background-color: #1a2035 !important
 }
@@ -10739,4 +10730,18 @@ body[data-background-color=dark] .jvm-zoom-btn {
 
 #gradient-sidebar{
    background: linear-gradient(176deg, #DB6079 -16.99%, #DA6F65 58.3%, #E29AB4 130.63%);
+}
+
+#viewButton .fa-eye{
+   font-size: 22px;
+   color: #DB6079;
+}
+
+#patientButton{
+   background-color: #DB6079 !important;
+   border-color: #DB6079 !important;
+}
+
+.modal-body a{
+   margin-right: 10px;
 }
