@@ -61,14 +61,14 @@
                   <div class="card">
                     <div class="card-header">
                       <div class="d-flex align-items-center">
-                        <h4 class="card-title">Medicine</h4>
+                        <h4 class="card-title">Patient</h4>
                         <button
                           class="btn btn-primary btn-round ms-auto"
                           data-bs-toggle="modal"
                           data-bs-target="#addMedModal"
                         >
                           <i class="fa fa-plus"></i>
-                          Add Medicine
+                          Add Patient
                         </button>
                       </div>
                     </div>
