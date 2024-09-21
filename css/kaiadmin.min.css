@@ -10769,4 +10769,13 @@ body[data-background-color=dark] .jvm-zoom-btn {
    display: flex;
    flex-direction: column;
    align-items: center;
- } 
+ }
+
+ #InputInfo input,select{
+   border-color: #DA6F65 !important;
+ }
+
+ #InputInfo button{
+   background-color: #DB6079 !important;
+   border-color: #DB6079 !important;
+ }
