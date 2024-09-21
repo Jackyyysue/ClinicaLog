@@ -66,6 +66,7 @@
                           class="btn btn-primary btn-round ms-auto"
                           data-bs-toggle="modal"
                           data-bs-target="#addMedModal"
+                          id="patientButton"
                         >
                           <i class="fa fa-plus"></i>
                           Add Patient

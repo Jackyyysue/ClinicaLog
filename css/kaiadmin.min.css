@@ -6302,7 +6302,7 @@ label.error {
 
 .btn-primary {
    background: #1572e8 !important;
-   border-color: #1572e8 !important
+   border-color: #1572e8 !important;
 }
 
 .btn-primary:disabled,
@@ -7512,6 +7512,10 @@ label.error {
    color: #DB6079;
 }
 
+#patientButton{
+   background-color: #DB6079 !important;
+   border-color: #DB6079 !important;
+}
 .timeline-badge.black {
    background-color: #1a2035 !important
 }
