@@ -260,8 +260,6 @@
             });
         });
     </script>
-</body>
-</html>
 
 <script>
   function updatedesignationOptions() {
@@ -430,3 +428,5 @@ document.getElementById("municipality").addEventListener("change", function() {
   populateDropdown(document.getElementById("barangay"), barangays);
 });
 </script>
+</body>
+</html>
