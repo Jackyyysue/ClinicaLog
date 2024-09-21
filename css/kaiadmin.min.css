@@ -10745,3 +10745,28 @@ body[data-background-color=dark] .jvm-zoom-btn {
 .modal-body a{
    margin-right: 10px;
 }
+
+.modalButton {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   min-height: 200px;
+ }
+ 
+ .modalButton a {
+   margin: 10px 0; /* Adds spacing between the buttons */
+ }
+
+ .custom-button {
+   font-size: 1.5rem; /* Increases the text size */
+   padding: 15px 30px; /* Increases the button size */
+   width: 200px; /* Sets a fixed width for the buttons */
+   margin: 10px 0; /* Adds space between buttons */
+ }
+ 
+ .modalButton {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ } 

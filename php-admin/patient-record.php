@@ -332,12 +332,11 @@
                         role="dialog"
                         aria-hidden="true"
                       >
-                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document" id="AddPatient">
                           <div class="modal-content">
                             <div class="modal-header border-0">
                               <h5 class="modal-title">
-                                <span class="fw-mediumbold">Add</span>
-                                <span class="fw-light"> Patient </span>
+                                <span class="fw-mediumbold">Add Patient</span>
                               </h5>
                               <button
                                 type="button"
@@ -350,17 +349,17 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form>
+                              <form class="modalButton">
                                 <!-- Button for Student Patient -->
                                 <a href="studentPatientPage.php">
-                                  <button type="button" class="btn btn-primary">
-                                    Student Patient
+                                  <button type="button" class="btn btn-primary btn-round ms-auto custom-button" id="patientButton">
+                                    Student
                                   </button>
                                 </a>
                                 <!-- Button for Staff Patient -->
                                 <a href="staffPatientPage.php">
-                                  <button type="button" class="btn btn-secondary">
-                                    Staff Patient
+                                  <button type="button" class="btn btn-primary btn-round ms-auto custom-button" id="patientButton">
+                                    Staff
                                   </button>
                                 </a>
                               </form>
