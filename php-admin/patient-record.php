@@ -1,3 +1,18 @@
+<?php
+session_start();
+include('../database/config.php');
+include('../php/user.php');
+include('../php/medicine.php');
+
+$db = new Database();
+$conn = $db->getConnection(); 
+
+$medicine = new Medicine($conn); 
+
+$user = new User($conn); 
+$user_id = $_SESSION['user_id'];
+$userData = $user->getUserData($user_id); 
+?>
 <!DOCTYPE html> 
 <html lang="en">
 <head>
@@ -50,10 +65,12 @@
         <!-- Sidebar -->
         <div class="sidebar" id="sidebar"></div>
         <!-- End Sidebar -->
+
         <div class="main-panel">
             <!-- Header -->
             <div class="main-header" id="header"></div>
             <!-- Main Content -->
+
             <div class="container" id="content">
             <div class="page-inner">
               <div class="row">
@@ -351,7 +368,7 @@
                             <div class="modal-body">
                               <form class="modalButton">
                                 <!-- Button for Student Patient -->
-                                <a href="studentPatientPage.php">
+                                <a href="add-student.php">
                                   <button type="button" class="btn btn-primary btn-round ms-auto custom-button" id="patientButton">
                                     Student
                                   </button>
@@ -370,7 +387,6 @@
                       
                       <div class="table-responsive">
                         <table
-                          id="add-med"
                           class="display table table-striped table-hover"
                         >
                           <thead>
@@ -417,6 +433,28 @@
                               </div>
                             </td>
                           </tr>
+
+                          <tr>
+                            <td>Jackilyn M. Furog</td>
+                            <td>2022-00473</td>
+                            <td>09756066512</td>
+                            <td>06/28/2024</td>
+                            <td>Nurse Tweet</td>
+                            <td>Stomach Ache</td>
+                            <td>
+                              <div class="form-button-action">
+                                <button
+                                  id="viewButton"
+                                  type="button"
+                                  data-bs-toggle="tooltip"
+                                  title=""
+                                  class="btn btn-link btn-primary btn-lg"
+                                >
+                                  <i class="fa fa-eye"></i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
                         </tbody>
                         </table>
                       </div>
@@ -437,24 +475,8 @@
     <!-- jQuery Scrollbar -->
     <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-    <!-- Chart JS -->
-    <script src="../assets/js/plugin/chart.js/chart.min.js"></script>
-
-    <!-- jQuery Sparkline -->
-    <script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Chart Circle -->
-    <script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
-
     <!-- Datatables -->
     <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
-
-    <!-- Bootstrap Notify -->
-    <script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-
-    <!-- jQuery Vector Maps -->
-    <script src="../assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="../assets/js/plugin/jsvectormap/world.js"></script>
 
     <!-- Sweet Alert -->
     <script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>

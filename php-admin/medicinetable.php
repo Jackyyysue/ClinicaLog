@@ -53,9 +53,7 @@ $userData = $user->getUserData($user_id);
     <link rel="stylesheet" href="../css/plugins.min.css" />
     <link rel="stylesheet" href="../css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="../css/demo.css" />
-
+    <!-- ICONS -->
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <style>
@@ -67,14 +65,6 @@ $userData = $user->getUserData($user_id);
       .logo-header {
           transition: background 0.3s ease;
       }
-      .nav-item.active {
-            background-color: rgba(0, 0, 0, 0.1); 
-            color: #fff; 
-        }
-
-        .nav-item.active i {
-            color: #fff;
-        }
   </style>
   </head>
   <body>
