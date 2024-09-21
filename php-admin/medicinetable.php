@@ -93,6 +93,7 @@ $userData = $user->getUserData($user_id);
                         class="btn btn-primary btn-round ms-auto"
                         data-bs-toggle="modal"
                         data-bs-target="#addMedModal"
+                        id="addbutton"
                       >
                         <i class="fa fa-plus"></i>
                         Add Medicine

@@ -84,56 +84,32 @@
                     </div>
                   </div>
 
-                  <!-- ID and Academic Info -->
+                  <!-- ID and Work Info -->
                   <div class="row">
-                    <div class="col-md-2 mb-3">
+                    <div class="col-md-4 mb-3">
                       <label for="studentID" class="form-label">ID Number</label>
                       <input type="text" class="form-control" id="studentID" name="studentID" placeholder="Enter ID number" required />
                     </div>
 
-                    <!-- Program Dropdown -->
+                    <!-- Department Dropdown -->
                     <div class="col-md-4 mb-3">
-                      <label for="program" class="form-label">Program</label>
-                      <select class="form-select" id="program" name="program" required onchange="updateMajorOptions()">
-                        <option selected disabled>Select Program</option>
-                        <option value="Bachelor of Science in Secondary Education">Bachelor of Science in Secondary Education</option>
-                        <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
-                        <option value="Bachelor of Science in Agricultural and Biosystems Engineering">Bachelor of Science in Agricultural and Biosystems Engineering</option>
-                        <option value="Bachelor of Technical-Vocational Education">Bachelor of Technical-Vocational Education</option>
-                        <option value="Bachelor of Special Needs Education">Bachelor of Special Needs Education</option>
-                        <option value="Bachelor of Early Childhood Education">Bachelor of Early Childhood Education</option>
-                        <option value="Bachelor of Elementary Education">Bachelor of Elementary Education</option>
-                        <!-- Add more programs as needed -->
+                      <label for="department" class="form-label">Department</label>
+                      <select class="form-select" id="department" name="department" required onchange="updatedesignationOptions()">
+                        <option selected disabled>Select Department</option>
+                        <option value="Office of the Chancellor">Office of the Chancellor</option>
+                        <option value="Administration">Administration</option>
+                        <option value="Office of Student Affairs and Services">Office of Student Affairs and Services</option>
+                        <option value="Campus Clinic">Campus Clinic</option>
                       </select>
                     </div>
 
-                    <!-- Major Dropdown -->
-                    <div class="col-md-2 mb-3">
-                      <label for="major" class="form-label">Major</label>
-                      <select class="form-select" id="major" name="major" required>
-                        <option selected disabled>Select Major</option>
-                        <!-- Major options will be dynamically populated based on the Program -->
+                    <!-- Designation Dropdown -->
+                    <div class="col-md-4 mb-3">
+                      <label for="designation" class="form-label">Designation</label>
+                      <select class="form-select" id="designation" name="designation" required>
+                        <option selected disabled>Select Designation</option>
                       </select>
                     </div>
-
-                    <!-- Section Dropdown -->
-                     
-                    <div class="col-md-2 mb-3">
-                        <label for="year" class="form-label">Year</label>
-                        <select class="form-select" id="year" name="year" required>
-                            <option selected disabled>Select Year</option>
-                            <option value="1">1st Year</option>
-                            <option value="2">2nd Year</option>
-                            <option value="3">3rd Year</option>
-                            <option value="4">4th Year</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-2 mb-3">
-                      <label for="section" class="form-label">Section</label>
-                      <input type="text" class="form-control" id="section" name="section" placeholder="e.g., 3A" required />
-                    </div>
-                  </div>
 
                   <!-- Date of Birth -->
                   <div class="row">
@@ -270,31 +246,28 @@
 </html>
 
 <script>
-  function updateMajorOptions() {
-    const program = document.getElementById("program").value;
-    const major = document.getElementById("major");
+  function updatedesignationOptions() {
+    const department = document.getElementById("department").value;
+    const designation = document.getElementById("designation");
 
-    // Clear existing major options
-    major.innerHTML = "<option selected disabled>Select Major</option>";
+    // Clear existing designation options
+    designation.innerHTML = "<option selected disabled>Select Designation</option>";
 
-    // Define majors based on program selection
-    const majorOptions = {
-      "Bachelor of Science in Secondary Education": ["Filipino", "English", "Mathematics"],
-      "Bachelor of Science in Information Technology": ["Information Security"],
-      "Bachelor of Science in Agricultural and Biosystems Engineering": ["None"],
-      "Bachelor of Technical-Vocational Education": ["Agricultural Crop Production", "Animal Production"],
-      "Bachelor of Special Needs Education": ["None"],
-      "Bachelor of Early Childhood Education": ["None"],
-      "Bachelor of Elementary Education": ["None"],
+    // Define designations based on department selection
+    const designationOptions = {
+      "Office of the Chancellor": ["Technical Staff", "Chancellor", "Secretary"],
+      "Administration": ["Budget Committee", "Admin", "Billing"],
+      "Office of Student Affairs and Services": ["Deputy Director", "OSAS Staff", "Scholarship"],
+      "Campus Clinic": ["Physician", "Nurse"]
     };
 
-    // Get the relevant majors for the selected program
-    if (majorOptions[program]) {
-      majorOptions[program].forEach(function (majorName) {
+    // Get the relevant designations for the selected department
+    if (designationOptions[department]) {
+      designationOptions[department].forEach(function (designationName) {
         const option = document.createElement("option");
-        option.value = majorName;
-        option.textContent = majorName;
-        major.appendChild(option);
+        option.value = designationName;
+        option.textContent = designationName;
+        designation.appendChild(option);
       });
     }
   }
