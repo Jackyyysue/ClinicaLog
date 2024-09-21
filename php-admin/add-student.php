@@ -70,17 +70,22 @@
                 <form>
                   <!-- Name Fields -->
                   <div class="row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                       <label for="lastName" class="form-label">Last Name</label>
                       <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name" required />
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                       <label for="firstName" class="form-label">First Name</label>
                       <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" required />
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                       <label for="middleName" class="form-label">Middle Name</label>
                       <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Enter middle name" />
+                    </div>
+                    <!-- Date of Birth -->
+                    <div class="col-md-2 mb-3">
+                      <label for="dob" class="form-label">Date of Birth</label>
+                      <input type="date" class="form-control" id="dob" name="dob" required />
                     </div>
                   </div>
 
@@ -135,38 +140,52 @@
                     </div>
                   </div>
 
-                  <!-- Date of Birth -->
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="dob" class="form-label">Date of Birth</label>
-                      <input type="date" class="form-control" id="dob" name="dob" required />
-                    </div>
-                  </div>
-
                   <!-- Address Fields -->
                   <h5>Current Address</h5>
                   <div class="row">
+                    <!-- Region Dropdown -->
+                    <div class="col-md-2 mb-3">
+                      <label for="region" class="form-label">Region</label>
+                      <select class="form-select" id="region" name="region" required>
+                        <option selected disabled>Select Region</option>
+                        <!-- Options for Region will go here -->
+                      </select>
+                    </div>
+
+                    <!-- Province Dropdown -->
+                    <div class="col-md-3 mb-3">
+                      <label for="province" class="form-label">Province</label>
+                      <select class="form-select" id="province" name="province" required>
+                        <option selected disabled>Select Province</option>
+                        <!-- Options for Province will go here -->
+                      </select>
+                    </div>
+
+                    <!-- Municipality Dropdown -->
+                    <div class="col-md-3 mb-3">
+                      <label for="municipality" class="form-label">Municipality</label>
+                      <select class="form-select" id="municipality" name="municipality" required>
+                        <option selected disabled>Select Municipality</option>
+                        <!-- Options for Municipality will go here -->
+                      </select>
+                    </div>
+
+                    <!-- Barangay Dropdown -->
+                    <div class="col-md-2 mb-3">
+                      <label for="barangay" class="form-label">Barangay</label>
+                      <select class="form-select" id="barangay" name="barangay" required>
+                        <option selected disabled>Select Barangay</option>
+                        <!-- Options for Barangay will go here -->
+                      </select>
+                    </div>
+
+                    <!-- Street Input (Text Field) -->
                     <div class="col-md-2 mb-3">
                       <label for="street" class="form-label">Purok/Block No./Street</label>
                       <input type="text" class="form-control" id="street" name="street" placeholder="Enter street address" required />
                     </div>
-                    <div class="col-md-2 mb-3">
-                      <label for="barangay" class="form-label">Barangay</label>
-                      <input type="text" class="form-control" id="barangay" name="barangay" placeholder="Enter barangay" required />
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <label for="municipality" class="form-label">Municipality</label>
-                      <input type="text" class="form-control" id="municipality" name="municipality" placeholder="Enter municipality" required />
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <label for="province" class="form-label">Province</label>
-                      <input type="text" class="form-control" id="province" name="province" placeholder="Enter province" required />
-                    </div>
-                    <div class="col-md-2 mb-3">
-                      <label for="region" class="form-label">Region</label>
-                      <input type="text" class="form-control" id="region" name="region" placeholder="Enter region" required />
-                    </div>
                   </div>
+
 
                   <!-- Contact Information -->
                   <div class="row">
@@ -364,4 +383,78 @@
         }
     });
   });
+</script>
+
+<script>
+  const addressData = {
+  regions: {
+    "Region XI": {
+      provinces: {
+        "Davao del Norte": {
+          municipalities: ["Tagum City", "Sto. Tomas"],
+          barangays: {
+            "Tagum City": ["Apokon", "Pagsabangan"],
+            "Sto. Tomas": ["Kinamayan", "Poblacion"]
+          }
+        },
+        "Davao de Oro": {
+          municipalities: ["Pantukan", "Nabunturan"],
+          barangays: {
+            "Pantukan": ["Kingking", "Magnaga"],
+            "Nabunturan": ["Anislagan", "Poblacion"]
+          }
+        }
+      }
+    },
+    "Region XII": {
+      provinces: {
+        "Cotabato": {
+          municipalities: ["Alamada", "Carmen"],
+          barangays: {
+            "Alamada": ["Camansi", "Macabasa"],
+            "Carmen": ["Bentangan", "General Luna"]
+          }
+        }
+      }
+    }
+  }
+};
+
+function populateDropdown(dropdown, options) {
+  dropdown.innerHTML = '<option selected disabled>Select</option>';
+  options.forEach(option => {
+    const opt = document.createElement("option");
+    opt.value = option;
+    opt.textContent = option;
+    dropdown.appendChild(opt);
+  });
+}
+
+// Populate Regions
+const regionSelect = document.getElementById("region");
+populateDropdown(regionSelect, Object.keys(addressData.regions));
+
+// Handle region change
+regionSelect.addEventListener("change", function() {
+  const selectedRegion = this.value;
+  const provinces = Object.keys(addressData.regions[selectedRegion].provinces);
+  populateDropdown(document.getElementById("province"), provinces);
+});
+
+// Handle province change
+document.getElementById("province").addEventListener("change", function() {
+  const selectedRegion = regionSelect.value;
+  const selectedProvince = this.value;
+  const municipalities = addressData.regions[selectedRegion].provinces[selectedProvince].municipalities;
+  populateDropdown(document.getElementById("municipality"), municipalities);
+});
+
+// Handle municipality change
+document.getElementById("municipality").addEventListener("change", function() {
+  const selectedRegion = regionSelect.value;
+  const selectedProvince = document.getElementById("province").value;
+  const selectedMunicipality = this.value;
+  const barangays = addressData.regions[selectedRegion].provinces[selectedProvince].barangays[selectedMunicipality];
+  populateDropdown(document.getElementById("barangay"), barangays);
+});
 </script>
