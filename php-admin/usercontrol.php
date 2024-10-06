@@ -151,3 +151,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the submitted ID
+    $id = $_POST['addid'];
+
+    // Regular expression for validating xxxx-xxxx format
+    $id_pattern = "/^\d{4}-\d{4}$/";
+
+    // Validate the ID
+    if (preg_match($id_pattern, $id)) {
+        // Proceed with processing the rest of the form
+        // e.g., save the data to the database
+        echo "ID format is valid.";
+        // Continue with the rest of your code
+    } else {
+        // Display an error if the ID format is incorrect
+        echo "Error: ID must be in the format xxxx-xxxx.";
+        // Redirect or handle the error accordingly
+    }
+}
+?>
