@@ -203,7 +203,7 @@ $userData = $user->getUserData($user_id);
                   <a
                     class="nav-link dropdown-toggle"
                     data-bs-toggle="dropdown"
-                    href="#"
+                    href="#" 
                     role="button"
                     aria-expanded="false"
                     aria-haspopup="true"
@@ -656,7 +656,7 @@ $userData = $user->getUserData($user_id);
                                 <select id="editstatus" name="editstatus" class="form-control">
                                     <option value="Active">Active</option>
                                     <option value="Inactive">Inactive</option>
-                                </select>
+                                </select> 
                             </div>
                         </div>
                     </div>

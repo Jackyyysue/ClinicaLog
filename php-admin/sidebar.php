@@ -17,7 +17,7 @@
             "Font Awesome 5 Regular",
             "Font Awesome 5 Brands",
             "simple-line-icons",
-          ],
+          ], 
           urls: ["../css/fonts.min.css"], 
         },
         active: function () {

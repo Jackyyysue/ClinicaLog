@@ -14,24 +14,52 @@ $db = $database->getConnection();
 $user = new User($db);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['password'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $username = "admin";
-    $defaultpass = "admin123";
-     
-    $userData = $user->userExists($email, $password);
+
+    $email = $_POST['email'];  
+    $password = $_POST['password'];  
+    $defaultadmin = "Administrator";
+    $doctor = "Campus Physician";
     
-    if ($userData) { 
+    $userData = $user->userExists($email, $password);
+      
+    if ($userData) {  
+        session_regenerate_id(true);
         $_SESSION['logged_in'] = true;
-        $_SESSION['user_id'] = $userData->user_id; 
-        header('Location: ../php-admin/index.php'); 
-        exit;
+        $_SESSION['user_id'] = $userData->user_id;  
+        $_SESSION['user_status'] = $userData->user_status;
+        $_SESSION['user_position'] = $userData->user_position;
+        $_SESSION['user_role'] = $userData->user_role;
+
+        $user_position = $_SESSION['user_position'];
+        $user_role = $_SESSION['user_role'];
+        $status = $_SESSION['user_status'];  
+ 
+        if($userData->user_status === 'Active'){
+
+            if($user_position == $defaultadmin){
+                header('Location: ../php-admin/index.php'); 
+                exit;
+            }
+            if($user_position == $doctor){
+                header('Location: ../php-admin/index.php'); 
+                exit;
+            }
+            if($user_role == 'Super Admin'){
+                header('Location: ../php-admin/superadindex.php'); 
+                exit;
+            }
+            if($user_role == 'Admin'){
+                header('Location: ../php-admin/adminindex.php'); 
+                exit;
+            }
+        }
+        else{
+            $_SESSION['error_message'] = "Acount can't be used.";
+            header('Location: ' . $_SERVER['PHP_SELF']);
+            exit;
+        }
     }  
-     
-    if ($email == $username && $password == $defaultpass) {  
-        header('Location: ../php-admin/index.php');
-        exit; 
-    } else { 
+    else { 
         $_SESSION['error_message'] = 'Invalid email or password.';
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit;
@@ -78,7 +106,7 @@ unset($_SESSION['error_message']);
                         <label for="password" class="form-label">Password:</label>
                         <img src="../assets/img/password.png" alt="password icon">
                         <input type="password" name="password" id="password" class="form-input" placeholder="Enter your Password" required>
-                        <input type="checkbox" id="show-password"> 
+                      <input type="checkbox" id="show-password"> 
                     </div>
 
                     <div class="forgotpassword">
@@ -86,7 +114,7 @@ unset($_SESSION['error_message']);
                         <span id="click"><a href="forgotpassword.php">Click Here.</a></span>
                     </div>
                 </div>
-
+ 
                 <button id="loginbtn" type="submit">Login</button>
             </form>
         </div>
@@ -97,7 +125,7 @@ unset($_SESSION['error_message']);
             if (this.checked) {
                 passwordField.type = 'text';
             } else {
-                passwordField.type = 'password';
+                passwordField.type = 'password'; 
             }
             });
     </script>
