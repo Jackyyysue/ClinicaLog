@@ -134,8 +134,7 @@ $userData = $user->getUserData($user_id);
                                 <div class="col-md-12">
                                   <div class="form-group form-group-default">
                                     <label>ID</label>
-                                    <input id="addid" name="addid" type="text" class="form-control" placeholder="e.g. 1234-5678" 
-                                      pattern="\d{4}-\d{4}" title="ID must be in the format xxxx-xxxx, where x is a digit" required />
+                                    <input id="addid" name="addid" type="text" class="form-control" placeholder="fill ID" required />
                                   </div>
                                 </div>
                                 <div class="col-md-12">
